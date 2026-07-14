@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour
 
     public Vector3 Velocity => rb.linearVelocity;
 
-    public Vector3 Position => transform.position;
+    public Vector3 Position => this.transform.position;
 
     public float MaxSpeed => maxSpeed;
 
@@ -23,6 +23,11 @@ public class CharacterMovement : MonoBehaviour
     public void ApplyAcceleration(Vector3 acceleration)
     {
         rb.linearVelocity += acceleration * Time.fixedDeltaTime;
+
+        rb.linearVelocity =
+            Vector3.ClampMagnitude(
+                rb.linearVelocity,
+                maxSpeed);
     }
 
 }

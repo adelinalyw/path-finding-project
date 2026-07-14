@@ -8,7 +8,7 @@ public class SteeringContext
     public Transform Target;
 
     // Optional path
-    public Spline Path;
+    public SplineContainer Path;
 
     public Vector3 CharacterVelocity;
 

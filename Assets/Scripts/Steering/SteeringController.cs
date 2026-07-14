@@ -5,7 +5,7 @@ using UnityEngine.Splines;
 public class SteeringController : MonoBehaviour
 {
     [SerializeField] private Transform currentTarget;
-    [SerializeField] private Spline currentPath;
+    [SerializeField] private SplineContainer currentPath;
 
     private SteeringContext context;
     private CharacterMovement movement;
@@ -16,7 +16,8 @@ public class SteeringController : MonoBehaviour
     private void Start()
     {
         behaviours.Add(new SeekBehaviour());
-        context.MaxSpeed = movement.MaxSpeed;
+        context = new SteeringContext();
+        movement = GetComponent<CharacterMovement>();
     }
 
     private void FixedUpdate()
@@ -42,6 +43,7 @@ public class SteeringController : MonoBehaviour
 
     public void UpdateContext()
     {
+        context.MaxSpeed = movement.MaxSpeed;
         context.CharacterPosition = movement.Position;
         context.CharacterVelocity = movement.Velocity;
 
