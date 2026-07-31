@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class SeekBehaviour : SteeringBehaviour
 {
-    public override Vector3 CalculateAcceleration(
-        SteeringContext context)
+    public override Vector3 CalculateAcceleration(SteeringContext context)
     {
         if (context.Target == null)
             return Vector3.zero;

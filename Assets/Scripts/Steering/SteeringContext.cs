@@ -3,17 +3,16 @@ using UnityEngine.Splines;
 
 public class SteeringContext
 {
-
-    // Optional target
     public Transform Target;
 
-    // Optional path
     public SplineContainer Path;
 
     public Vector3 CharacterVelocity;
 
-    public Vector3 CharacterPosition;
-
     public float MaxSpeed;
+
+    public GameObject Character;
+
+    public Vector3 CharacterPosition => Character.transform.position;
 
 }

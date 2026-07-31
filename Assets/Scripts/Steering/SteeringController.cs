@@ -18,6 +18,7 @@ public class SteeringController : MonoBehaviour
         behaviours.Add(new SeekBehaviour());
         context = new SteeringContext();
         movement = GetComponent<CharacterMovement>();
+        context.Character = this.gameObject;
     }
 
     private void FixedUpdate()
@@ -44,7 +45,6 @@ public class SteeringController : MonoBehaviour
     public void UpdateContext()
     {
         context.MaxSpeed = movement.MaxSpeed;
-        context.CharacterPosition = movement.Position;
         context.CharacterVelocity = movement.Velocity;
 
         context.Target = currentTarget;
